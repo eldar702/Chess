@@ -1,0 +1,126 @@
+/********
+	name of the function: findISrc
+	input:
+	output:
+	function operation:
+	********/
+	int findISrc(char pgn[]) {
+		int i = 0;
+		int iSrc = 0;
+		int tempISrc = 0;
+		int counter = 0;
+		while (pgn[i] != '\0')
+		{
+			if (pgn[i] >= '1' && pgn[i] <= SIZE + '0') 
+			{
+				counter++;
+				tempISrc = pgn[i] - '0';
+			}
+			else if (counter == 1)
+			{
+				iSrc = tempISrc;
+			}
+		}
+		i++;
+		if (counter == 2)
+		{
+			return (iSrc);
+		}
+		else
+			return 0;
+	}
+	/********
+	name of the function:
+	input:
+	output:
+	function operation:
+	********/
+	int findJSrc(char pgn[]) {
+			int i = 0;
+			int jSrc = 0;
+			int tempJSrc = 0;
+			int counter = 0;
+			while (pgn[i] != '\0')
+			{
+				if (pgn[i] >= 'a' && pgn[i] <= 'h')
+				{
+					counter++;
+					tempJSrc = pgn[i] - 'a';
+				}
+			else if (counter == 1)
+			{
+				jSrc = tempJSrc;
+			}
+		}
+		i++;
+		if (counter == 2)
+		{
+			return (jSrc);
+		}
+		else
+			return 0;
+	}
+
+	/********
+	name of the function:
+	input:
+	output:
+	function operation:
+	********/
+	int findIDest(char pgn[]) {
+		int i=0;
+		int iDest=0;
+		while (pgn[i] != '\0')
+		{
+			if (pgn[i] >= '1' && pgn[i] <= SIZE + '0') {
+				iDest = pgn[i] - '0';
+			}
+			i++;
+		}
+		iDest = SIZE - iDest;
+		return iDest = pgn[i] - '0';
+	}
+
+	/********
+	name of the function:
+	input:
+	output:
+	function operation:
+	********/
+	int FindJDest(char pgn[]) {
+		int i = 0;
+		int jDest = 0;
+		while (pgn[i] != '\0')
+		{
+			if (pgn[i] >= 'a' && pgn[i] <= 'h') {
+				jDest = pgn[i] - 'a';
+			}
+			i++;
+		}
+		return (jDest);
+	}
+
+	/********
+	name of the function:
+	input:
+	output:
+	function operation:
+	********/
+
+int findIsPromotion(int iDest, int isWhiteTurn,char srcPiece, char pgn[])
+	{
+		int i = 0;
+		while (pgn[i] != '\0')
+		{
+			if (pgn[i] == '=' && (iDest == 0) && (isWhiteTurn))
+			{
+				return 1;
+			}
+			else if ((pgn[i] == '=' && (iDest == SIZE - 1) && (!isWhiteTurn)))
+			{
+				return 1;
+			}
+			i++;
+		}
+		return 0;
+	}
